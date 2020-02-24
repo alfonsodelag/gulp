@@ -4,8 +4,10 @@ var ts = require('gulp-typescript');
 const autoprefixer = require('gulp-autoprefixer');
 let cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
+var browserSync = require('browser-sync').create();
+var sassGlob = require('gulp-sass-glob');
 
- 
+
 gulp.task('sass', function () {
     return gulp.src('./sass/*.sass')
       .pipe(sass().on('error', sass.logError))
@@ -39,7 +41,21 @@ gulp.task('sass', function () {
       }))
       .pipe(gulp.dest('dist'))
     })
+
+    gulp.task('browsersync', function() {
+      return gulp.src('./css/*.css')
+          .pipe(sass())
+          .pipe(gulp.dest('./dist'))
+          .pipe(browserSync.stream());
+  });
   
-  gulp.task('default', gulp.parallel('sass', 'hi', 'minify-css', 'typescript', 'autoprefix'));
+  gulp.task('styles', function () {
+    return gulp.src('./src/*.scss')
+        .pipe(sassGlob())
+        .pipe(sass())
+        .pipe(gulp.dest('dist/styles'));
+});
+
+  gulp.task('default', gulp.parallel('sass', 'hi', 'minify-css', 'typescript', 'autoprefix', 'browsersync', 'styles'));
 
 
