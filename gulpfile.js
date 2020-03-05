@@ -34,18 +34,18 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./dist'));
   });
 
-    gulp.task('autoprefix', async function() {
-      gulp.src('./css/*.css')
+    gulp.task('autoprefix', function() {
+      return gulp.src('./css/autoprefix.css')
       .pipe(autoprefixer({
           cascade: false
       }))
-      .pipe(gulp.dest('dist'))
-    })
+      .pipe(gulp.dest('./dist'));
+    });
 
     gulp.task('browsersync', function() {
       return gulp.src('./css/*.css')
           .pipe(sass())
-          .pipe(gulp.dest('./dist'))
+          .pipe(gulp.dest('./dist/autoprefix'))
           .pipe(browserSync.stream());
   });
   

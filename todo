@@ -5,8 +5,6 @@
 
 -Crear una tarea que haga uso de “browser-sync” observando el cambio en los ficheros de sass.
 
--Crear una tarea que haga uso del concepto “Globbing” de forma clara para trabajar únicamente con los ficheros que cumplan una determinada regla. Por ejemplo, ficheros con extensión .scss que estén dentro de cualquier directorio que esté dentro de un directorio principal llamado src. ( Parece un juego de palabras pero no lo es jeje )
-
 -Tener una estructura de directorios clara y ordenada para separar los ficheros de desarrollo de los ficheros de producción. Es importante que revises repositorios de terceros ( como por ejemplo el de bootstrap ) y entiendas cómo se organiza para obtener ideas que pueden ayudarte a generar tu estructura de directorios.
 
 -Configura tu proyecto para que puedas ejecutar al menos una tarea a través de npm sin necesidad de usar gulp de forma global ni de llamar al ejecutable de gulp instalado en node_modules. ( investiga cómo ejecutar tareas desde npm )
